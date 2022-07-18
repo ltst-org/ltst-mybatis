@@ -15,6 +15,11 @@ public class MapperProxyFactory<T> {
         this.mapperInterface = mapperInterface;
     }
 
+    /**
+     * create new Instance
+     * @param sqlExecute
+     * @return
+     */
     public T newInstance(SqlExecute sqlExecute){
         MapperProxy mapperProxy = new MapperProxy(sqlExecute,mapperInterface);
         Object proxyInstance = Proxy.newProxyInstance(mapperInterface.getClassLoader(), new Class[]{mapperInterface}, mapperProxy);
