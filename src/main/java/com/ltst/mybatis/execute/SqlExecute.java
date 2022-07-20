@@ -6,11 +6,13 @@ public class SqlExecute {
 
     /**
      * test sql executor , use to show which interface need run which method.
-     * @param clzss need execute interface
-     * @param method need execute method
+     * @param statementId
      * @return className + methodName
      */
-    public String execute(Class clzss, Method method){
-        return "execute "+clzss.getName()+","+method.getName();
+    public <T> T execute(String statementId){
+        return (T) ("execute "+statementId);
+    }
+    public <T> T execute(String statementId,Object args){
+        return (T) ("execute :"+statementId+",参数:"+args);
     }
 }

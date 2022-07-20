@@ -30,7 +30,7 @@ public class MapperProxy<T> implements InvocationHandler {
         if(Object.class.equals(method.getDeclaringClass())){
             return method.invoke(this,args);
         }else{
-            return sqlExecute.execute(mapperInterface,method);
+            return sqlExecute.execute(method.getName(),args);
         }
     }
 }
